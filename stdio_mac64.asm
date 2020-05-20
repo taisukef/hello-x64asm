@@ -39,7 +39,7 @@ section .text
 
 		mov rax, 0x2000003		; syscall 3: read
 		mov rdi, 0	        	; fd = stdin
-    mov rsi, rdx          ; buffer
+		mov rsi, rdx          ; buffer
 		mov rdx, r8           ; size
 		syscall
 
