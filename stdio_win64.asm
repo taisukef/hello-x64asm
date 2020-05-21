@@ -1,4 +1,4 @@
-; syscall for Windows x64
+; syscall emulator for Windows x64
 
 section .data
 	STDIO_QUERY_STDOUT equ -11
@@ -23,7 +23,7 @@ section .text
 
 	extern WriteFile
 	stdio_write: ; rsi:buffer rdx:len of buffer
-		push rax
+		push rax ; backup registers
 		push rcx
 		push rdx
 		push r8
@@ -64,13 +64,14 @@ section .text
 
 	extern ReadFile
 	stdio_read: ; rsi:buffer rdx:len of buffer
-		push rax
+		push rax ; backup registers
 		push rcx
 		push rdx
 		push r8
 		push r9
 		push r10
 		push r11
+		; omit xmm0-5, ymm0-15(high), zmm0-15(high)
 
 		mov rax, rsp ; for align
 		and rax, 8
