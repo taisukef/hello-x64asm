@@ -10,10 +10,10 @@ section .text
 	_main:
 		call stdio_init
 
-		mov rdx, MESSAGE
-		mov r8, LEN_MESSAGE
+		mov rsi, MESSAGE
+		mov rdx, LEN_MESSAGE
 		call stdio_write
 
-		mov rcx, 0
+		mov rdi, 0
 		call stdio_exit
 		ret

@@ -22,18 +22,18 @@ section .text
 		call stdout_test
 		call nestcall_test
 		
-		mov rdx, msg2
-		mov r8, msg2_len
+		mov rsi, msg2
+		mov rdx, msg2_len
 		call stdio_write
 
-		mov rdx, buffer
-		mov r8, 8
+		mov rsi, buffer
+		mov rdx, 8
 		call stdio_read
-		mov rdx, buffer
-		mov r8, 8
+		mov rsi, buffer
+		mov rdx, 8
 		call stdio_write
 		
-		pop rcx
+		pop rdi
 		call stdio_exit ; must be 123
 
 	nestcall_test:
@@ -42,7 +42,7 @@ section .text
 		; ret
 
 	stdout_test:
-		mov  rdx, msg
-		mov  r8, msg_len
+		mov  rsi, msg
+		mov  rdx, msg_len
 		call stdio_write
 		ret
