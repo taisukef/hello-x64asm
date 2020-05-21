@@ -18,8 +18,8 @@ section .text
 
 		mov rsi, rdx; buffer
 		mov rdx, r8                  ; size
-		mov rax, 1		; syscall write
 		mov rdi, 1	        	; fd = stdout
+		mov rax, 1		; syscall write
 		syscall
 
 		pop rsi
@@ -37,10 +37,10 @@ section .text
 		push rdi
 		push rsi
 
-		mov rax, 0		; syscall read
 		mov rdi, 0	        	; fd = stdin
 		mov rsi, rdx          ; buffer
 		mov rdx, r8           ; size
+		mov rax, 0		; syscall read
 		syscall
 
 		pop rsi
