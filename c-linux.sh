@@ -1,4 +1,4 @@
-nasm -f elf64 hello.asm -DCENT64
+nasm -f elf64 hello.asm -DLINUX64
 ld -e _main hello.o -o hello
 ./hello
 echo $?
